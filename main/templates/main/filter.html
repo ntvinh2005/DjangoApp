@@ -1,0 +1,182 @@
+{% extends 'main/base.html' %}
+<html>
+{% block title %} Overview your Note here {% endblock%}
+{% block content %}
+
+    <h1 class="text-lg-center text-uppercase">{{fil}}</h1>
+        <ul>
+            {% for nt in notes.all %}
+            {% for tp in nt.topic_set.all %}
+            {% if fil == "school" %}
+            {% if tp.learn == True %}
+            <div class="d-inline">
+            <div class="alert alert-primary mb-0 p-1 rounded-top d-flex justify-content-between" role="alert">
+                {% for dat in nt.date_set.all %}
+                   {{dat.text}}
+                {% endfor %}
+                <div class="justify-content-end">
+                {% for top in nt.topic_set.all %}
+                {% if top.learn == True %}
+                <a href="/view/school" class="breadcrumb-item">School</a>
+                {% endif %}
+                {% if top.work == True %}
+                <a href="/view/business" class="breadcrumb-item">Business</a>
+                {% endif %}
+                {% if top.idea == True %}
+                <a href="/view/idea" class="breadcrumb-item">Idea</a>
+                {% endif %}
+                {% if top.life == True %}
+                <a href="/view/daily task" class="breadcrumb-item">Daily Task</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+            <div class="alert alert-secondary mb-4 shadow rounded-bottom d-flex justify-content-between" role="alert">
+                <a href="/{{nt.id}}" class=" text-uppercase font-weight-bold text-monospace text-center">{{nt.name}}</a>
+                
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample{{nt.id}}" aria-expanded="false" aria-controls="collapseExample{{nt.id}}">
+                    Preview
+                  </button>
+            </div> 
+            <div class="collapse multi-collapse mb-3" id="collapseExample{{nt.id}}">
+            <div class="card card-body">
+            {% for it in nt.item_set.all %}           
+            <li>{{it.text}}</li>  
+            {% endfor %}
+            </div>
+            </div>
+            </div>
+            {% endif %}
+            {% endif %}
+
+            {% if fil == "business" %}
+            {% if tp.work == True %}
+            <div class="d-inline">
+            <div class="alert alert-primary mb-0 p-1 rounded-top d-flex justify-content-between" role="alert">
+                {% for dat in nt.date_set.all %}
+                   {{dat.text}}
+                {% endfor %}
+                <div class="justify-content-end">
+                    {% for top in nt.topic_set.all %}
+                    {% if top.learn == True %}
+                    <a href="/view/school" class="breadcrumb-item">School</a>
+                    {% endif %}
+                    {% if top.work == True %}
+                    <a href="/view/business" class="breadcrumb-item">Business</a>
+                    {% endif %}
+                    {% if top.idea == True %}
+                    <a href="/view/idea" class="breadcrumb-item">Idea</a>
+                    {% endif %}
+                    {% if top.life == True %}
+                    <a href="/view/daily task" class="breadcrumb-item">Daily Task</a>
+                    {% endif %}
+                    {% endfor %}
+            </div>
+        </div>
+            <div class="alert alert-secondary mb-4 shadow rounded-bottom d-flex justify-content-between" role="alert">
+                <a href="/{{nt.id}}" class=" text-uppercase font-weight-bold text-monospace text-center">{{nt.name}}</a>
+                
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample{{nt.id}}" aria-expanded="false" aria-controls="collapseExample{{nt.id}}">
+                    Preview
+                  </button>
+            </div> 
+            <div class="collapse multi-collapse mb-3" id="collapseExample{{nt.id}}">
+            <div class="card card-body">
+            {% for it in nt.item_set.all %}           
+            <li>{{it.text}}</li>  
+            {% endfor %}
+            </div>
+            </div>
+            </div>
+            {% endif %}
+            {% endif %}
+
+            {% if fil == "idea" %}
+            {% if tp.idea == True %}
+            <div class="d-inline">
+            <div class="alert alert-primary mb-0 p-1 rounded-top d-flex justify-content-between" role="alert">
+                {% for dat in nt.date_set.all %}
+                   {{dat.text}}
+                {% endfor %}
+                <div class="justify-content-end">
+                    {% for top in nt.topic_set.all %}
+                    {% if top.learn == True %}
+                    <a href="/view/school" class="breadcrumb-item">School</a>
+                    {% endif %}
+                    {% if top.work == True %}
+                    <a href="/view/business" class="breadcrumb-item">Business</a>
+                    {% endif %}
+                    {% if top.idea == True %}
+                    <a href="/view/idea" class="breadcrumb-item">Idea</a>
+                    {% endif %}
+                    {% if top.life == True %}
+                    <a href="/view/daily task" class="breadcrumb-item">Daily Task</a>
+                    {% endif %}
+                    {% endfor %}
+            </div>
+        </div>
+            <div class="alert alert-secondary mb-4 shadow rounded-bottom d-flex justify-content-between" role="alert">
+                <a href="/{{nt.id}}" class=" text-uppercase font-weight-bold text-monospace text-center">{{nt.name}}</a>
+                
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample{{nt.id}}" aria-expanded="false" aria-controls="collapseExample{{nt.id}}">
+                    Preview
+                  </button>
+            </div> 
+            <div class="collapse multi-collapse mb-3" id="collapseExample{{nt.id}}">
+            <div class="card card-body">
+            {% for it in nt.item_set.all %}           
+            <li>{{it.text}}</li>  
+            {% endfor %}
+            </div>
+            </div>
+            </div>
+            {% endif %}
+            {% endif %}
+
+            {% if fil == "daily task" %}
+            {% if tp.life == True %}
+            <div class="d-inline">
+            <div class="alert alert-primary mb-0 p-1 rounded-top d-flex justify-content-between" role="alert">
+                {% for dat in nt.date_set.all %}
+                   {{dat.text}}
+                {% endfor %}
+                <div class="justify-content-end">
+                    {% for top in nt.topic_set.all %}
+                    {% if top.learn == True %}
+                    <a href="/view/school" class="breadcrumb-item">School</a>
+                    {% endif %}
+                    {% if top.work == True %}
+                    <a href="/view/business" class="breadcrumb-item">Business</a>
+                    {% endif %}
+                    {% if top.idea == True %}
+                    <a href="/view/idea" class="breadcrumb-item">Idea</a>
+                    {% endif %}
+                    {% if top.life == True %}
+                    <a href="/view/daily task" class="breadcrumb-item">Daily Task</a>
+                    {% endif %}
+                    {% endfor %}
+            </div>
+        </div>
+            <div class="alert alert-secondary mb-4 shadow rounded-bottom d-flex justify-content-between" role="alert">
+                <a href="/{{nt.id}}" class=" text-uppercase font-weight-bold text-monospace text-center">{{nt.name}}</a>
+                
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample{{nt.id}}" aria-expanded="false" aria-controls="collapseExample{{nt.id}}">
+                    Preview
+                  </button>
+            </div> 
+            <div class="collapse multi-collapse mb-3" id="collapseExample{{nt.id}}">
+            <div class="card card-body">
+            {% for it in nt.item_set.all %}           
+            <li>{{it.text}}</li>  
+            {% endfor %}
+            </div>
+            </div>
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </ul>
+{% endblock %}
+
+</html>

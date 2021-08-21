@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+<html>
+{% block title %} Note {% endblock%}
+{% block content %}
+<form action="#" method="post" class="shadow p-3 mb-5 bg-gradient rounded  justify-content-between"> 
+    {% csrf_token %}
+    <h1>{{note.name}}
+    </h1>
+    
+        <ul> <p class="font-weight-light">
+            {% for item in note.item_set.all %}
+           
+        <div class="input-group  mb-3 ">
+            <div class="input-group-prepend">
+                <button type="submit", name="update", value="update" class="btn btn-success">
+                    o
+                  </button>    
+            </div>
+            <input type="text", name="o{{item.id}}", value="{{item.text}}" class="form-control">
+            <div class="input-group-append">
+            <button class="btn btn-light btn-outline-success dropdown-toggle dropdown-toggle-split" type="button" data-toggle="collapse" data-target="#o{{item.id}}" aria-expanded="false" aria-controls="o{{item.id}}" >
+              </button>
+        </div>
+    </div>
+        <div class="collapse" id="o{{item.id}}">
+        <div class="card card-body mb-3 bg-light">
+          {{item.text}}
+        </div>
+      </div>
+            {% endfor %}</p>
+        </ul> 
+        <div class="d-flex justify-content-between">
+        <div class="input-group  mb-1 ">
+        <div class="input-group-prepend">
+        <input type="text", name="new">
+        <button type="submit", name="newItem", value="newItem" class="btn btn-success">Add</button>
+        </div>
+        </div>
+        <button type="submit", name="delete", value="delete" class="close" aria-label="Close"> 
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </form>
+{% endblock %}
+
+</html>

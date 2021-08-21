@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+<html>
+    <body>
+
+        {% block content %}
+        <h1>New subject</h1>
+        <form action="/subject/" method="post" class="form-group">
+            {% csrf_token %}
+            <div class="form-group">
+            <div class="col-6" placeholder="Enter email">
+            {{ form.name|as_crispy_field }}
+            </div>
+        </div>
+            {{ form.learning|as_crispy_field }}
+            {{ form.working|as_crispy_field }}
+            {{ form.idea|as_crispy_field }}
+            {{ form.life|as_crispy_field }}
+            <button type="submit", name="save" class="btn btn-success">Add</button>
+        </form>
+        {% endblock %}
+    </body>
+</html>

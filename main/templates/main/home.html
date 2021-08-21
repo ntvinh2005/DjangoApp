@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+<html>
+    <head>
+    </head>
+    <header><h1>HomePage</h1></header>
+    <body>
+        
+        {% block content %}
+        <div class="jumbotron shadow-sm rounded">
+          <h1 class="display-4">Hello, I'm your notebook</h1>
+          <p class="lead">Simply taking note here and I will remind when you call</p>
+          <hr class="my-4">
+          <p>There are countless amazing jobs we can do together. I can automatically filter and arrange your papers depended on dates and topics and lots more. Let's begin!</p>
+          <button class="btn-lg btn btn-primary" type="button" data-toggle="collapse" data-target="#detail" aria-expanded="false" aria-controls="detail">
+            Learn more
+          </button>
+          <div class="collapse multi-collapse p-5" id="detail">
+            <div id="carouselExampleControls" class="carousel slide d-flex align-items-center" data-ride="carousel">
+              <div class="carousel-inner d-flex">
+                <div class="carousel-item active">
+                  <div class="d-flex justify-content-between">
+                  <img class="d-block w-50" src="{% static 'image/New.png' %}" alt="New">
+                  <div class="p-3 align-self-center">  Create your new subject or topic there. We have four tags to classify easier.</div>
+                </div></div>
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-between">
+                  <img class="d-block w-50" src="{% static 'image/View.png' %}" alt="View">
+                  <div class="p-3 align-self-center">View your papers there. You can search your work with our filter.</div> 
+                </div></div>
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-between">
+                  <img class="d-block w-50" src="{% static 'image/Note.png' %}" alt="Note">
+                  <div class="p-3 align-self-center">View your notes in details. You can modify them whenever you want.</div>
+                </div></div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            </div>
+          </div>
+       
+ 
+        {% endblock %}
+    </body>
+</html>

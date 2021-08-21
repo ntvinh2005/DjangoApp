@@ -1,0 +1,48 @@
+body{
+    font-style: normal;
+}
+.logo>img{
+    display: flexbox;
+    border-radius: 50%;
+   height: 100px;
+   width: 100px;
+}
+.logo{
+    border-radius: 50%;
+}
+.nav{
+    display: inline-flex;
+    flex-direction: column;
+    height:100%;
+    width:130px;
+    position:fixed;
+    text-align: center;
+    top:0;
+    left:0;
+    background-color:cadetblue;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding-top:20px;
+}
+.navbar{
+text-align: center;
+}
+
+.navbar a{
+    padding-top: 10px;
+    font-size: 25px;
+text-decoration: none;
+color:dimgray;
+transition: color 0.5s;
+}
+
+.navbar:hover{
+box-shadow: transparent;
+}
+.navbar a:hover{
+    color: black
+}
+
+#content{
+    padding-left: 200px;
+}
